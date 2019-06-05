@@ -32,7 +32,7 @@
         var userName = 'user' + Math.floor((Math.random()*1000)+1);
 
         //http://www.gaozecm.com
-        var socket =   io('http://10.1.142.109:9098/im/trade',{path:"/trade.io",transports:['websocket'],'force new connection': true});
+        var socket =   io('http://127.0.0.1:9098/im/trade',{path:"/trade.io",transports:['websocket'],'force new connection': true});
 
         socket.on('connect', function() {
             output('<span class="connect-msg">Client has connected to the server!</span>');
@@ -68,18 +68,6 @@
             socket.disconnect();
         }
 
-        // function sendMessage() {
-        //                 var message = $('#msg').val();
-        //                 $('#msg').val('');
-        //
-        //                 var jsonObject = {'@class': 'com.corundumstudio.socketio.demo.ChatObject',
-        //                                   userName: userName,
-        //                                   message: message};
-        //
-        //                 socket.emit('ackevent1', jsonObject, function(arg1, arg2) {
-        //                     alert("ack from server! arg1: " + arg1 + ", arg2: " + arg2);
-        //                 });
-        // }
 
         socket.on('send', function(data, ackServerCallback) {
             output('<span class="username-msg">' + 'fromsever' + ':</span> ' + data);
@@ -89,10 +77,10 @@
                 ackServerCallback('server message was delivered to client!');
             }
         });
-        socket.emit('send',{"cmd":"sub","args":["candle.M15.jbzxusdt"]});
+        // socket.emit('send',{"cmd":"sub","args":["candle.M15.jbzxusdt"]});
         function sendMessage() {
 
-            var jsonObject = {"cmd":"req","args":["candle.M15.jbzxusdt",100, 1556529300],"id":"trade.M15.jbzxusdt"};
+            var jsonObject = {"cmd":"req","args":["candle.M15.jbzxusdt",100, 1551717000],"id":"trade.M5.jbzxusdt"};
 
             socket.emit('send', jsonObject, function(arg1, arg2) {
                 console.log("ack from server! arg1: " + arg1 + ", arg2: " + arg2);
