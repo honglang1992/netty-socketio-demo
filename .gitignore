@@ -2,4 +2,4 @@
 /server/target
 /server/.classpath
 /server/.project
-*.idea
+.idea/
