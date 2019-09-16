@@ -80,8 +80,8 @@
         // socket.emit('send',{"cmd":"sub","args":["candle.M15.jbzxusdt"]});
         function sendMessage() {
 
-            var jsonObject = {"cmd":"req","args":["candle.M15.jbzxusdt",100, 1551717000],"id":"trade.M5.jbzxusdt"};
-
+            // var jsonObject = {"cmd":"req","args":["candle.M1.jbzxusdt",10, 1560966240],"id":"trade.M1.jbzxusdt"};
+            var jsonObject = {"cmd":"req","args":["candle.H1.jbzxusdt",2000, Date.parse(new Date())/1000],"id":"trade.H1.jbzxusdt"};
             socket.emit('send', jsonObject, function(arg1, arg2) {
                 console.log("ack from server! arg1: " + arg1 + ", arg2: " + arg2);
             });

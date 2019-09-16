@@ -94,7 +94,7 @@
         // socket.emit('send',{"cmd":"sub","args":["candle.M15.jbzxusdt"]});
         function sendMessage() {
 
-            var jsonObject = {"cmd":"req","args":["candle.D1.jbzxusdt",100, Date.parse(new Date())/1000],"id":"trade.D1.jbzxusdt"};
+            var jsonObject = {"cmd":"req","args":["candle.H1.jbzxusdt",100, Date.parse(new Date())/1000],"id":"trade.H1.jbzxusdt"};
             // var jsonObject = {"cmd":"req","args":["candle.D1.jbzxusdt",100, Date.parse(new Date())/1000],"id":"trade.D1.jbzxusdt"};
 
             socket.emit('send', jsonObject, function(arg1, arg2) {
